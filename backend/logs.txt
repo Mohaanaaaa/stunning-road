@@ -1,0 +1,202 @@
+2024-12-07T05:51:35.532Z [INFO]: Validating email {"email":"primeadmin@example.com"}
+2024-12-07T05:51:35.574Z [INFO]: Email validation response received {"email":"primeadmin@example.com","success":true}
+2024-12-07T05:51:41.733Z [INFO]: Login attempt started {"email":"primeadmin@example.com","rememberMe":false}
+2024-12-07T05:51:41.853Z [INFO]: Cleared saved credentials from local storage 
+2024-12-07T05:51:41.851Z [INFO]: Login successful {"email":"primeadmin@example.com"}
+2024-12-09T13:38:47.851Z [INFO]: Validating email {"email":"primeadmin@example.com"}
+2024-12-09T13:38:48.044Z [INFO]: Email validation response received {"email":"primeadmin@example.com","success":true}
+2024-12-09T13:38:50.490Z [INFO]: Validating email {"email":"primeadmin@example.co"}
+2024-12-09T13:38:50.554Z [ERROR]: Email validation failed {"data":{"success":false,"message":"Email not found"},"status":404,"statusText":"Not Found","headers":{"content-length":"45","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/verify-email","data":"{\"email\":\"primeadmin@example.co\"}"},"request":{}}
+2024-12-09T13:38:50.958Z [INFO]: Validating email {"email":"primeadmin@example.c"}
+2024-12-09T13:38:51.001Z [WARN]: Invalid email format detected {"email":"primeadmin@example."}
+2024-12-09T13:38:51.005Z [INFO]: Validating email {"email":"primeadmin@example."}
+2024-12-09T13:38:51.017Z [ERROR]: Email validation failed {"data":{"success":false,"message":"Email not found"},"status":404,"statusText":"Not Found","headers":{"content-length":"45","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/verify-email","data":"{\"email\":\"primeadmin@example.c\"}"},"request":{}}
+2024-12-09T13:38:51.020Z [INFO]: Validating email {"email":"primeadmin@example"}
+2024-12-09T13:38:51.087Z [WARN]: Invalid email format detected {"email":"primeadmin@example"}
+2024-12-09T13:38:51.093Z [WARN]: Invalid email format detected {"email":"primeadmin@exampl"}
+2024-12-09T13:38:51.103Z [INFO]: Validating email {"email":"primeadmin@examp"}
+2024-12-09T13:38:51.105Z [INFO]: Validating email {"email":"primeadmin@exampl"}
+2024-12-09T13:38:51.125Z [WARN]: Invalid email format detected {"email":"primeadmin@examp"}
+2024-12-09T13:38:51.133Z [INFO]: Validating email {"email":"primeadmin@exam"}
+2024-12-09T13:38:51.143Z [WARN]: Invalid email format detected {"email":"primeadmin@exam"}
+2024-12-09T13:38:51.158Z [INFO]: Validating email {"email":"primeadmin@exa"}
+2024-12-09T13:38:51.161Z [WARN]: Invalid email format detected {"email":"primeadmin@exa"}
+2024-12-09T13:38:51.168Z [INFO]: Validating email {"email":"primeadmin@ex"}
+2024-12-09T13:38:51.204Z [WARN]: Invalid email format detected {"email":"primeadmin@ex"}
+2024-12-09T13:38:51.258Z [INFO]: Validating email {"email":"primeadmin@e"}
+2024-12-09T13:38:51.269Z [WARN]: Invalid email format detected {"email":"primeadmin@e"}
+2024-12-09T13:38:51.274Z [INFO]: Validating email {"email":"primeadmin@"}
+2024-12-09T13:38:51.277Z [WARN]: Invalid email format detected {"email":"primeadmin@"}
+2024-12-09T13:38:51.282Z [INFO]: Validating email {"email":"primeadmin"}
+2024-12-09T13:38:51.301Z [WARN]: Invalid email format detected {"email":"primeadmin"}
+2024-12-09T13:38:52.327Z [INFO]: Validating email {"email":"primeadmi"}
+2024-12-09T13:38:52.332Z [WARN]: Invalid email format detected {"email":"primeadmi"}
+2024-12-09T13:38:52.813Z [INFO]: Validating email {"email":"primeadm"}
+2024-12-09T13:38:52.814Z [WARN]: Invalid email format detected {"email":"primeadm"}
+2024-12-09T13:38:52.840Z [INFO]: Validating email {"email":"primead"}
+2024-12-09T13:38:52.846Z [WARN]: Invalid email format detected {"email":"primead"}
+2024-12-09T13:38:52.871Z [INFO]: Validating email {"email":"primea"}
+2024-12-09T13:38:52.875Z [WARN]: Invalid email format detected {"email":"primea"}
+2024-12-09T13:38:52.902Z [INFO]: Validating email {"email":"prime"}
+2024-12-09T13:38:52.906Z [WARN]: Invalid email format detected {"email":"prime"}
+2024-12-09T13:38:52.931Z [INFO]: Validating email {"email":"prim"}
+2024-12-09T13:38:52.938Z [WARN]: Invalid email format detected {"email":"prim"}
+2024-12-09T13:38:52.962Z [INFO]: Validating email {"email":"pri"}
+2024-12-09T13:38:52.967Z [WARN]: Invalid email format detected {"email":"pri"}
+2024-12-09T13:38:53.021Z [INFO]: Validating email {"email":"pr"}
+2024-12-09T13:38:53.036Z [WARN]: Invalid email format detected {"email":"pr"}
+2024-12-09T13:38:53.038Z [INFO]: Validating email {"email":"p"}
+2024-12-09T13:38:53.042Z [WARN]: Invalid email format detected {"email":"p"}
+2024-12-09T13:38:53.070Z [INFO]: Validating email {"email":""}
+2024-12-09T13:38:53.071Z [WARN]: Invalid email format detected {"email":""}
+2024-12-09T13:39:12.651Z [INFO]: Validating email {"email":"primeadmin@example.com"}
+2024-12-09T13:39:12.670Z [INFO]: Email validation response received {"email":"primeadmin@example.com","success":true}
+2024-12-09T13:39:21.956Z [INFO]: Login attempt started {"email":"primeadmin@example.com","rememberMe":false}
+2024-12-09T13:39:22.115Z [INFO]: Login successful {"email":"primeadmin@example.com"}
+2024-12-09T13:39:22.116Z [INFO]: Cleared saved credentials from local storage 
+2024-12-09T13:41:27.225Z [INFO]: Validating email {"email":"primeadmin@example.com"}
+2024-12-09T13:41:27.245Z [INFO]: Email validation response received {"email":"primeadmin@example.com","success":true}
+2024-12-09T13:41:32.860Z [INFO]: Login attempt started {"email":"primeadmin@example.com","rememberMe":false}
+2024-12-09T13:41:33.120Z [INFO]: Login successful {"email":"primeadmin@example.com"}
+2024-12-09T13:41:33.122Z [INFO]: Cleared saved credentials from local storage 
+2024-12-09T13:45:52.435Z [INFO]: Starting email verification {"email":"primeadmin@example.com"}
+2024-12-09T13:45:52.448Z [INFO]: Email verified successfully {"email":"primeadmin@example.com"}
+2024-12-09T14:13:08.418Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-09T14:13:08.449Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-09T14:13:13.655Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-09T14:13:13.808Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-09T14:13:13.809Z [INFO]: Cleared saved credentials from local storage 
+2024-12-10T13:46:16.100Z [INFO]: Validating email {"email":"primeadmin@example.com"}
+2024-12-10T13:46:16.164Z [INFO]: Email validation response received {"email":"primeadmin@example.com","success":true}
+2024-12-10T13:46:25.310Z [INFO]: Login attempt started {"email":"primeadmin@example.com","rememberMe":false}
+2024-12-10T13:46:25.459Z [INFO]: Login successful {"email":"primeadmin@example.com"}
+2024-12-10T13:46:25.461Z [INFO]: Cleared saved credentials from local storage 
+2024-12-10T13:49:59.525Z [INFO]: Validating email {"email":"varun@gmail.com"}
+2024-12-10T13:49:59.579Z [ERROR]: Email validation failed {"data":{"success":false,"message":"Email not found"},"status":404,"statusText":"Not Found","headers":{"content-length":"45","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/verify-email","data":"{\"email\":\"varun@gmail.com\"}"},"request":{}}
+2024-12-10T13:50:17.939Z [INFO]: Validating email {"email":""}
+2024-12-10T13:50:17.942Z [WARN]: Invalid email format detected {"email":""}
+2024-12-10T13:50:29.066Z [INFO]: Starting email verification {"email":"primeadmin@example.com"}
+2024-12-10T13:50:29.081Z [INFO]: Email verified successfully {"email":"primeadmin@example.com"}
+2024-12-10T13:50:32.000Z [WARN]: Weak password entered {"password":"P"}
+2024-12-10T13:50:32.804Z [WARN]: Weak password entered {"password":"Pa"}
+2024-12-10T13:50:33.374Z [WARN]: Weak password entered {"password":"P"}
+2024-12-10T13:50:33.523Z [WARN]: Weak password entered {"password":""}
+2024-12-10T13:50:35.889Z [INFO]: Random strong password generated {"randomPassword":"3A<7klLD8$D5"}
+2024-12-10T13:50:42.304Z [WARN]: Weak password entered {"password":""}
+2024-12-10T13:50:43.117Z [WARN]: Weak password entered {"password":"P"}
+2024-12-10T13:50:43.600Z [WARN]: Weak password entered {"password":"Pa"}
+2024-12-10T13:50:43.890Z [WARN]: Weak password entered {"password":"Pas"}
+2024-12-10T13:50:44.041Z [WARN]: Weak password entered {"password":"Pass"}
+2024-12-10T13:50:44.652Z [WARN]: Weak password entered {"password":"Passw"}
+2024-12-10T13:50:44.869Z [WARN]: Weak password entered {"password":"Passwo"}
+2024-12-10T13:50:45.084Z [WARN]: Weak password entered {"password":"Passwor"}
+2024-12-10T13:50:45.290Z [WARN]: Weak password entered {"password":"Password"}
+2024-12-10T13:50:45.840Z [WARN]: Weak password entered {"password":"Password@"}
+2024-12-10T13:50:46.060Z [INFO]: Strong password entered {"password":"Password@1"}
+2024-12-10T13:50:46.259Z [INFO]: Strong password entered {"password":"Password@12"}
+2024-12-10T13:50:46.526Z [INFO]: Strong password entered {"password":"Password@123"}
+2024-12-10T13:50:53.197Z [INFO]: Attempting password reset {"email":"primeadmin@example.com","newPassword":"Password@123"}
+2024-12-10T13:51:01.508Z [INFO]: Password reset successful {"email":"primeadmin@example.com"}
+2024-12-10T13:51:15.392Z [INFO]: Validating email {"email":"primeadmin@example.com"}
+2024-12-10T13:51:15.414Z [INFO]: Email validation response received {"email":"primeadmin@example.com","success":true}
+2024-12-10T13:51:20.529Z [INFO]: Login attempt started {"email":"primeadmin@example.com","rememberMe":false}
+2024-12-10T13:51:20.667Z [ERROR]: Login failed {"data":{"message":"Invalid credentials"},"status":401,"statusText":"Unauthorized","headers":{"content-length":"33","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/login","data":"{\"email\":\"primeadmin@example.com\",\"password\":\"Welcome@123\"}"},"request":{}}
+2024-12-10T13:51:34.079Z [INFO]: Login attempt started {"email":"primeadmin@example.com","rememberMe":false}
+2024-12-10T13:51:34.224Z [INFO]: Login successful {"email":"primeadmin@example.com"}
+2024-12-10T13:51:34.226Z [INFO]: Cleared saved credentials from local storage 
+2024-12-12T05:00:23.510Z [INFO]: Starting email verification {"email":"mohankumer8@gmail.com"}
+2024-12-12T05:00:23.773Z [INFO]: Email verified successfully {"email":"mohankumer8@gmail.com"}
+2024-12-12T05:00:29.365Z [WARN]: Weak password entered {"password":"h"}
+2024-12-12T05:00:29.593Z [WARN]: Weak password entered {"password":"ht"}
+2024-12-12T05:00:29.692Z [WARN]: Weak password entered {"password":"hth"}
+2024-12-12T05:00:29.852Z [WARN]: Weak password entered {"password":"hthy"}
+2024-12-12T05:00:48.132Z [WARN]: Weak password entered {"password":"hth"}
+2024-12-12T05:00:48.630Z [WARN]: Weak password entered {"password":"ht"}
+2024-12-12T05:00:48.656Z [WARN]: Weak password entered {"password":"h"}
+2024-12-12T05:00:48.671Z [WARN]: Weak password entered {"password":""}
+2024-12-12T05:02:17.293Z [INFO]: Starting email verification {"email":"mohankumer8@gmail.com"}
+2024-12-12T05:02:17.316Z [INFO]: Email verified successfully {"email":"mohankumer8@gmail.com"}
+2024-12-12T05:02:20.046Z [WARN]: Weak password entered 
+2024-12-12T05:02:20.213Z [WARN]: Weak password entered 
+2024-12-12T05:02:20.234Z [WARN]: Weak password entered 
+2024-12-12T05:02:21.169Z [WARN]: Weak password entered 
+2024-12-12T05:02:22.229Z [WARN]: Weak password entered 
+2024-12-12T05:02:22.412Z [WARN]: Weak password entered 
+2024-12-12T05:02:22.609Z [WARN]: Weak password entered 
+2024-12-12T05:02:22.802Z [WARN]: Weak password entered 
+2024-12-12T05:02:24.756Z [WARN]: Weak password entered 
+2024-12-12T05:02:25.780Z [WARN]: Weak password entered 
+2024-12-12T05:02:25.964Z [WARN]: Weak password entered 
+2024-12-12T05:02:26.105Z [WARN]: Weak password entered 
+2024-12-12T05:02:26.300Z [WARN]: Weak password entered 
+2024-12-12T05:02:26.448Z [WARN]: Weak password entered 
+2024-12-12T05:02:26.591Z [WARN]: Weak password entered 
+2024-12-12T05:02:27.243Z [WARN]: Weak password entered 
+2024-12-12T05:02:27.460Z [INFO]: Strong password entered 
+2024-12-12T05:02:27.664Z [INFO]: Strong password entered 
+2024-12-12T05:02:27.909Z [INFO]: Strong password entered 
+2024-12-12T05:02:50.539Z [INFO]: Strong password entered 
+2024-12-12T05:02:51.030Z [INFO]: Strong password entered 
+2024-12-12T05:02:51.055Z [WARN]: Weak password entered 
+2024-12-12T05:02:51.077Z [WARN]: Weak password entered 
+2024-12-12T05:02:51.106Z [WARN]: Weak password entered 
+2024-12-12T05:02:51.133Z [WARN]: Weak password entered 
+2024-12-12T05:02:51.171Z [WARN]: Weak password entered 
+2024-12-12T05:02:51.199Z [WARN]: Weak password entered 
+2024-12-12T05:02:51.228Z [WARN]: Weak password entered 
+2024-12-12T05:02:51.258Z [WARN]: Weak password entered 
+2024-12-12T05:02:51.291Z [WARN]: Weak password entered 
+2024-12-12T05:03:22.619Z [INFO]: Starting email verification {"email":"mohankumer8@gmail.com"}
+2024-12-12T05:03:22.639Z [INFO]: Email verified successfully {"email":"mohankumer8@gmail.com"}
+2024-12-12T05:05:49.029Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-12T05:05:49.052Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-12T05:06:07.127Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-12T05:06:07.243Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-12T05:06:07.245Z [INFO]: Cleared saved credentials from local storage 
+2024-12-12T05:09:57.742Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-12T05:09:57.760Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-21T08:37:51.264Z [INFO]: Validating email {"email":"primeadmin@example.com"}
+2024-12-21T08:37:51.522Z [INFO]: Email validation response received {"email":"primeadmin@example.com","success":true}
+2024-12-21T08:37:58.030Z [INFO]: Login attempt started {"email":"primeadmin@example.com","rememberMe":false}
+2024-12-21T08:37:58.205Z [ERROR]: Login failed {"data":{"message":"Invalid credentials"},"status":401,"statusText":"Unauthorized","headers":{"content-length":"33","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/login","data":"{\"email\":\"primeadmin@example.com\",\"password\":\"Welcome@123\"}"},"request":{}}
+2024-12-21T08:38:07.491Z [INFO]: Login attempt started {"email":"primeadmin@example.com","rememberMe":false}
+2024-12-21T08:38:07.640Z [ERROR]: Login failed {"data":{"message":"Invalid credentials"},"status":401,"statusText":"Unauthorized","headers":{"content-length":"33","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/login","data":"{\"email\":\"primeadmin@example.com\",\"password\":\"Password\"}"},"request":{}}
+2024-12-21T08:38:11.853Z [INFO]: Validating email {"email":""}
+2024-12-21T08:38:11.865Z [WARN]: Invalid email format detected {"email":""}
+2024-12-21T08:38:14.223Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-21T08:38:14.243Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-21T08:38:25.241Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-21T08:38:25.394Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-21T08:38:25.395Z [INFO]: Cleared saved credentials from local storage 
+2024-12-21T08:40:42.545Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-21T08:40:42.580Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-21T08:40:48.261Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-21T08:40:48.405Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-21T08:40:48.407Z [INFO]: Cleared saved credentials from local storage 
+2024-12-23T05:53:11.293Z [INFO]: Validating email {"email":""}
+2024-12-23T05:53:11.309Z [WARN]: Invalid email format detected {"email":""}
+2024-12-23T05:53:11.913Z [INFO]: Validating email {"email":"m"}
+2024-12-23T05:53:11.922Z [WARN]: Invalid email format detected {"email":"m"}
+2024-12-23T05:53:12.113Z [INFO]: Validating email {"email":"mo"}
+2024-12-23T05:53:12.125Z [WARN]: Invalid email format detected {"email":"mo"}
+2024-12-23T05:53:14.301Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-23T05:53:14.631Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-23T05:53:21.399Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-23T05:53:21.577Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-23T05:53:21.579Z [INFO]: Cleared saved credentials from local storage 
+2024-12-23T05:59:12.515Z [INFO]: Validating email {"email":"primeadmin@example.com"}
+2024-12-23T05:59:12.543Z [INFO]: Email validation response received {"email":"primeadmin@example.com","success":true}
+2024-12-23T05:59:17.344Z [INFO]: Validating email {"email":""}
+2024-12-23T05:59:17.351Z [WARN]: Invalid email format detected {"email":""}
+2024-12-23T05:59:20.862Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-23T05:59:20.881Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-23T05:59:27.445Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-23T05:59:27.608Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-23T05:59:27.611Z [INFO]: Cleared saved credentials from local storage 
+2024-12-23T08:07:16.494Z [INFO]: Validating email {"email":""}
+2024-12-23T08:07:16.514Z [WARN]: Invalid email format detected {"email":""}
+2024-12-23T08:07:19.040Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-23T08:07:19.097Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-23T08:07:25.750Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-23T08:07:25.869Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-23T08:07:25.874Z [INFO]: Cleared saved credentials from local storage 
