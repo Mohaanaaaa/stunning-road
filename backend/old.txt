@@ -1,0 +1,255 @@
+//OTP send route
+/*app.post('/api/send-otp', (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  // Step 1: Check if email exists in `admins` table
+  const checkAdminQuery = 'SELECT * FROM admins WHERE email = ?';
+  db.query(checkAdminQuery, [email], (adminErr, adminResults) => {
+    if (adminErr) {
+      console.error('Error querying admins table:', adminErr);
+      return res.status(500).json({ message: 'Internal server error' });
+    }
+
+    if (adminResults.length === 0) {
+      return res.status(404).json({ message: 'Email not found in admin records' });
+    }
+
+    // Step 2: Ensure email exists in `users` table
+    const checkUserQuery = 'SELECT * FROM users WHERE email = ?';
+    db.query(checkUserQuery, [email], (userErr, userResults) => {
+      if (userErr) {
+        console.error('Error querying users table:', userErr);
+        return res.status(500).json({ message: 'Internal server error' });
+      }
+
+      if (userResults.length === 0) {
+        // Insert email into `users` table if not found
+        const insertUserQuery = 'INSERT INTO users (email) VALUES (?)';
+        db.query(insertUserQuery, [email], (insertErr) => {
+          if (insertErr) {
+            console.error('Error inserting email into users table:', insertErr);
+            return res.status(500).json({ message: 'Internal server error' });
+          }
+          generateAndSendOtp(email, res); // Proceed to OTP generation and email
+        });
+      } else {
+        generateAndSendOtp(email, res); // Proceed to OTP generation and email
+      }
+    });
+  });
+});
+
+function generateAndSendOtp(email, res) {
+  const otp = Math.floor(100000 + Math.random() * 900000); // Generate 6-digit OTP
+  const expiry = new Date(Date.now() + 5 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '); // Convert expiry to DATETIME
+
+  // Save OTP and expiry in `users` table
+  const saveOtpQuery = 'UPDATE users SET otp = ?, otp_expiry = ? WHERE email = ?';
+  db.query(saveOtpQuery, [otp, expiry, email], async (saveErr) => {
+    if (saveErr) {
+      console.error('Error updating users table with OTP:', saveErr);
+      return res.status(500).json({ message: 'Internal server error' });
+    }
+
+    // Send OTP via email
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      port:587,
+      secure:false,
+      auth: { user: 'mohankumer8@gmail.com', pass: 'pdmn mdsj nkzi tjgl' }, // Replace with secure credentials
+    });
+
+    const mailOptions = {
+      from: 'no-reply@example.com',
+      to: email,
+      subject: 'Password Reset OTP',
+      text: `Your OTP for password reset is: ${otp}. This OTP is valid for 5 minutes.`,
+    };
+
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log(`OTP sent to ${email}: ${otp}`);
+      res.status(200).json({ message: `OTP sent to ${email}` });
+    } catch (mailErr) {
+      console.error('Error sending email:', mailErr);
+      res.status(500).json({ message: 'Error sending OTP email' });
+    }
+  });
+}
+
+// Route to verify OTP
+app.post('/api/verify-otp', (req, res) => {
+  const { email, otp } = req.body; // Get email and OTP from request body
+
+  // Validate input
+  if (!email || !otp) {
+    return res.status(400).json({ message: 'Email and OTP are required' });
+  }
+
+  // Use a prepared statement to check for OTP and its expiry
+  const verifyOtpQuery = 'SELECT otp, otp_expiry FROM users WHERE email = ?';
+  db.query({ sql: verifyOtpQuery, values: [email] }, (err, results) => {
+    if (err) {
+      console.error('Error querying users table:', err);
+      return res.status(500).json({ message: 'Internal server error' });
+    }
+
+    // Check if the email exists
+    if (results.length === 0) {
+      return res.status(400).json({ message: 'Invalid email or OTP' });
+    }
+
+    const { otp: storedOtp, otp_expiry } = results[0];
+    const currentTime = new Date();
+
+    // Check if the supplied OTP matches and is not expired
+    if (storedOtp !== otp) {
+      return res.status(400).json({ message: 'Invalid OTP' });
+    }
+
+    if (currentTime > new Date(otp_expiry)) {
+      return res.status(400).json({ message: 'OTP has expired' });
+    }
+
+    // Start a transaction
+    db.beginTransaction((err) => {
+      if (err) {
+        console.error('Error starting transaction:', err);
+        return res.status(500).json({ message: 'Internal server error' });
+      }
+
+      // Clear OTP after successful verification
+      const clearOtpQuery = 'UPDATE users SET otp = NULL, otp_expiry = NULL WHERE email = ?';
+      db.query(clearOtpQuery, [email], (clearErr) => {
+        if (clearErr) {
+          console.error('Error clearing OTP in users table:', clearErr);
+          return db.rollback(() => {
+            res.status(500).json({ message: 'Internal server error' });
+          });
+        }
+
+        // Commit the transaction
+        db.commit((commitErr) => {
+          if (commitErr) {
+            console.error('Error committing transaction:', commitErr);
+            return db.rollback(() => {
+              res.status(500).json({ message: 'Internal server error' });
+            });
+          }
+
+          // Respond to indicate OTP is valid
+          res.status(200).json({ message: 'OTP is valid. Please enter your new password.' });
+        });
+      });
+    });
+  });
+});
+
+// Route to reset password
+app.post('/reset-password', async (req, res) => {
+  const { email, newPassword, confirmPassword } = req.body;
+
+  // Validate input
+  if (!email || !newPassword || !confirmPassword) {
+    return res.status(400).json({ message: 'Email, new password, and confirmation password are required' });
+  }
+
+  // Check if the new password and confirm password match
+  if (newPassword !== confirmPassword) {
+    return res.status(400).json({ message: 'New password and confirmation password do not match' });
+  }
+
+  try {
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+
+    // Update password in admins table associated with the email
+    const updateQuery = 'UPDATE admins SET password = ? WHERE email = ?';
+    db.query(updateQuery, [hashedPassword, email], (updateErr, results) => {
+      if (updateErr) {
+        console.error('Error updating password in admins table:', updateErr);
+        return res.status(500).json({ message: 'Internal server error' });
+      }
+
+      // If no rows were affected, the email might not exist in admins table
+      if (results.affectedRows === 0) {
+        return res.status(404).json({ message: 'Email not found in admins table' });
+      }
+
+      res.status(200).json({ message: 'Password has been reset successfully.' });
+    });
+  } catch (err) {
+    console.error('Error hashing password:', err);
+    res.status(500).json({ message: 'An unexpected error occurred' });
+  }
+});*/
+
+
+/*app.post('/api/login', (req, res) => {
+  const { email, password } = req.body;
+  const startTime = Date.now();
+
+  if (!email || !password) {
+    logRequest(req, res, 400);
+    return res.status(400).json({ message: 'Email and password are required' });
+  }
+
+  db.query('SELECT * FROM admins WHERE email = ?', [email], async (err, results) => {
+    if (err) {
+      logRequest(req, res, 500);
+      return res.status(500).json({ message: 'Database error' });
+    }
+
+    if (results.length === 0) {
+      logRequest(req, res, 401, null, email, { message: 'Invalid credentials' });
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    const admin = results[0];
+    const isPasswordValid = await bcrypt.compare(password, admin.password);
+
+    if (!isPasswordValid) {
+      logRequest(req, res, 401, null, email, { message: 'Invalid credentials' });
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    // Generate JWT
+    const token = jwt.sign({ id: admin.id, email: admin.email }, JWT_SECRET, {
+      expiresIn: '1h', // Token expiry time
+    });
+
+    const executionTime = Date.now() - startTime;
+    logRequest(req, res, 200, admin.id, admin.email, null, `${executionTime}ms`);
+    
+    // Send back the token
+    res.json({ token }); // Respond with the JWT
+    console.log('Login successful');
+  });
+});
+
+// Middleware to protect routes
+const authenticateJWT = (req, res, next) => {
+  const token = req.headers['authorization']?.split(' ')[1]; // Get token from header
+
+  if (!token) {
+    return res.sendStatus(403); // Forbidden
+  }
+
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) {
+      return res.sendStatus(403);
+    }
+
+    req.user = user; // Attach user data to the request
+    next();
+  });
+};
+
+// Protected route example
+app.get('/api/protected', authenticateJWT, (req, res) => {
+  res.send('This is a protected route, and you are authenticated!');
+});*/

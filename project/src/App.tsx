@@ -6,8 +6,7 @@ import ReportForm from './components/ReportForm';
 import AdminView from './components/AdminView';
 import Login from './components/LoginForm';
 import ForgotPassword from './components/forgotPassword';
-import SendOtp from './components/SendOtp';
-import VerifyOtp from './components/VerifyOtp';
+import ResetPassword from './components/ResetPassword';
 import { PotholeType } from './types';
 import { getDailyQuote } from './quotes';
 import { COPYRIGHT_TEXT } from './copyrights';
@@ -268,8 +267,7 @@ function App() {
           }
         />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password" element={<SendOtp />} />
-        <Route path="/verify-otp" element={<VerifyOtp />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     </Router>
   );

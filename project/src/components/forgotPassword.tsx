@@ -98,7 +98,7 @@ const ForgotPassword: React.FC = () => {
       return;
     }
 
-    logger.info('Attempting password reset', { email, newPassword });
+    logger.info('Attempting password reset', { email });
     try {
       const response = await axios.post('http://localhost:5000/api/forgot-password', {
         email,
@@ -150,16 +150,20 @@ const ForgotPassword: React.FC = () => {
 
   return (
     <div>
-      <div className="flex py-4 px-6 bg-white-200">
-        <AlertCircle className="h-8 w-8 text-blue-600" />
-        <h1 className="text-2xl font-bold text-gray-900 px-4">Bengaluru Roads</h1>
+      <div className= "container mx-auto flex items-center justify-between px-6">
+        <div className="flex items-center gap-2">
+          <AlertCircle className="h-8 w-8 text-blue-600" />
+          <h1 className="text-2xl font-bold text-gray-900">Bengaluru Roads</h1>
+        </div>
+        
       </div>
-      <button 
+      <button
         className="text-gray-600 hover:text-gray-900 flex items-center gap-2" 
-        onClick={() => navigate('/')}>
-          <ShieldCheck size={20} />
-          Back to Home
-        </button>
+        onClick={() => navigate('/')}
+      >
+        <ShieldCheck size={20} />
+        Back to Home
+      </button>
        {/* Daily Quote Section */}
        <div className="bg-gray-100 py-4 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

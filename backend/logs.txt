@@ -200,3 +200,82 @@
 2024-12-23T08:07:25.750Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
 2024-12-23T08:07:25.869Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
 2024-12-23T08:07:25.874Z [INFO]: Cleared saved credentials from local storage 
+2024-12-24T06:05:05.519Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-24T06:05:05.715Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-24T06:05:08.368Z [INFO]: Validating email {"email":""}
+2024-12-24T06:05:08.375Z [WARN]: Invalid email format detected {"email":""}
+2024-12-24T06:05:17.713Z [INFO]: Validating email {"email":"varun@gmail.com"}
+2024-12-24T06:05:17.729Z [ERROR]: Email validation failed {"data":{"success":false,"message":"Email not found"},"status":404,"statusText":"Not Found","headers":{"content-length":"45","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/verify-email","data":"{\"email\":\"varun@gmail.com\"}"},"request":{}}
+2024-12-24T06:05:23.343Z [INFO]: Validating email {"email":""}
+2024-12-24T06:05:23.345Z [WARN]: Invalid email format detected {"email":""}
+2024-12-24T06:05:26.564Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-24T06:05:26.587Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-24T06:05:42.255Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-24T06:05:42.366Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-24T06:05:42.367Z [INFO]: Cleared saved credentials from local storage 
+2024-12-24T06:14:33.640Z [INFO]: Starting email verification {"email":"primeadmin@example.com"}
+2024-12-24T06:14:33.677Z [INFO]: Email verified successfully {"email":"primeadmin@example.com"}
+2024-12-24T06:14:39.223Z [INFO]: Starting email verification {"email":"varun@gmail.com"}
+2024-12-24T06:14:39.243Z [ERROR]: Error during email verification {"email":"varun@gmail.com","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:43.383Z [INFO]: Starting email verification {"email":"varun@gmail."}
+2024-12-24T06:14:43.416Z [ERROR]: Error during email verification {"email":"varun@gmail.","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:43.559Z [INFO]: Starting email verification {"email":"varun@gmail"}
+2024-12-24T06:14:43.579Z [ERROR]: Error during email verification {"email":"varun@gmail","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:43.713Z [INFO]: Starting email verification {"email":"varun@gmai"}
+2024-12-24T06:14:43.732Z [ERROR]: Error during email verification {"email":"varun@gmai","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:43.846Z [INFO]: Starting email verification {"email":"varun@gma"}
+2024-12-24T06:14:43.863Z [ERROR]: Error during email verification {"email":"varun@gma","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:44.337Z [INFO]: Starting email verification {"email":"varun@gm"}
+2024-12-24T06:14:44.351Z [ERROR]: Error during email verification {"email":"varun@gm","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:44.367Z [INFO]: Starting email verification {"email":"varun@g"}
+2024-12-24T06:14:44.385Z [ERROR]: Error during email verification {"email":"varun@g","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:44.401Z [INFO]: Starting email verification {"email":"varun@"}
+2024-12-24T06:14:44.421Z [ERROR]: Error during email verification {"email":"varun@","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:44.432Z [INFO]: Starting email verification {"email":"varun"}
+2024-12-24T06:14:44.450Z [ERROR]: Error during email verification {"email":"varun","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:44.464Z [INFO]: Starting email verification {"email":"varu"}
+2024-12-24T06:14:44.490Z [ERROR]: Error during email verification {"email":"varu","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:44.499Z [INFO]: Starting email verification {"email":"var"}
+2024-12-24T06:14:44.515Z [ERROR]: Error during email verification {"email":"var","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:44.520Z [INFO]: Starting email verification {"email":"va"}
+2024-12-24T06:14:44.543Z [ERROR]: Error during email verification {"email":"va","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:44.550Z [INFO]: Starting email verification {"email":"v"}
+2024-12-24T06:14:44.586Z [ERROR]: Error during email verification {"email":"v","error":{"success":false,"message":"Email not found"}}
+2024-12-24T06:14:46.948Z [INFO]: Starting email verification {"email":"mohankumer8@gmail.com"}
+2024-12-24T06:14:46.968Z [INFO]: Email verified successfully {"email":"mohankumer8@gmail.com"}
+2024-12-24T06:15:00.158Z [INFO]: Random strong password generated {"randomPassword":"MHy<X5mS.Ea*"}
+2024-12-24T06:15:10.661Z [INFO]: Random strong password generated {"randomPassword":"(4z3JF&.@x%<"}
+2024-12-24T06:15:19.738Z [INFO]: Attempting password reset {"email":"mohankumer8@gmail.com","newPassword":"(4z3JF&.@x%<"}
+2024-12-24T06:15:23.182Z [INFO]: Password reset successful {"email":"mohankumer8@gmail.com"}
+2024-12-24T06:15:29.260Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-24T06:15:29.278Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-24T06:15:31.481Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-24T06:15:31.597Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-24T06:15:31.599Z [INFO]: Cleared saved credentials from local storage 
+2024-12-28T13:53:17.657Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-28T13:53:17.723Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-28T13:53:41.765Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-28T13:53:41.922Z [ERROR]: Login failed {"data":{"message":"Invalid credentials"},"status":401,"statusText":"Unauthorized","headers":{"content-length":"33","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/login","data":"{\"email\":\"mohankumer8@gmail.com\",\"password\":\"Welcome@123\"}"},"request":{}}
+2024-12-28T13:53:51.060Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-28T13:53:51.245Z [ERROR]: Login failed {"data":{"message":"Invalid credentials"},"status":401,"statusText":"Unauthorized","headers":{"content-length":"33","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/login","data":"{\"email\":\"mohankumer8@gmail.com\",\"password\":\"Password@123\"}"},"request":{}}
+2024-12-28T13:54:00.573Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-28T13:54:00.717Z [ERROR]: Login failed {"data":{"message":"Invalid credentials"},"status":401,"statusText":"Unauthorized","headers":{"content-length":"33","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/login","data":"{\"email\":\"mohankumer8@gmail.com\",\"password\":\"Welcome@123\"}"},"request":{}}
+2024-12-28T13:54:17.290Z [INFO]: Starting email verification {"email":"mohankumer8@gmail.com"}
+2024-12-28T13:54:17.315Z [INFO]: Email verified successfully {"email":"mohankumer8@gmail.com"}
+2024-12-28T13:54:29.787Z [INFO]: Attempting password reset {"email":"mohankumer8@gmail.com","newPassword":"Welcome@123"}
+2024-12-28T13:54:32.329Z [INFO]: Password reset successful {"email":"mohankumer8@gmail.com"}
+2024-12-28T14:05:39.458Z [INFO]: Starting email verification {"email":"mohankumer8@gmail.com"}
+2024-12-28T14:05:39.486Z [INFO]: Email verified successfully {"email":"mohankumer8@gmail.com"}
+2024-12-28T14:06:18.370Z [INFO]: Attempting password reset {"email":"mohankumer8@gmail.com"}
+2024-12-28T14:06:21.007Z [INFO]: Password reset successful {"email":"mohankumer8@gmail.com"}
+2024-12-28T14:06:33.769Z [INFO]: Validating email {"email":"m"}
+2024-12-28T14:06:33.778Z [WARN]: Invalid email format detected {"email":"m"}
+2024-12-28T14:06:33.974Z [INFO]: Validating email {"email":"mo"}
+2024-12-28T14:06:33.980Z [WARN]: Invalid email format detected {"email":"mo"}
+2024-12-28T14:06:35.769Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-28T14:06:35.804Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-28T14:06:46.311Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-28T14:06:46.459Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-28T14:06:46.462Z [INFO]: Cleared saved credentials from local storage 
+2024-12-29T05:43:23.889Z [ERROR]: [object Object] 
+2024-12-29T05:46:06.786Z [ERROR]: [object Object] 
