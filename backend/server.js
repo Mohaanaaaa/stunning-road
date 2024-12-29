@@ -10,6 +10,7 @@ const path = require('path'); // Ensure path is imported
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
@@ -24,10 +25,10 @@ app.use(
 
 // MySQL Database connection
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Welcome@123',
-  database: 'admin',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 // In-memory storage for demo purposes
@@ -38,8 +39,8 @@ const otpExpiryTime = 300000; // OTP valid for 5 minutes
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'mohankumer8@gmail.com', // Your email
-    pass: 'vswk dcau hweb qxol' // Your email password
+    user: process.env.EMAIL_USER, // Your email from .env
+    pass: process.env.EMAIL_PASS, // Your email password from .env
   }
 });
 
