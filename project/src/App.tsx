@@ -49,6 +49,9 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  
+  // New state to hold the admin email
+  const [adminEmail, setAdminEmail] = useState<string | null>(null);
 
   // Effect to save potholes to local storage
   useEffect(() => {
@@ -64,6 +67,9 @@ function App() {
     setIsAuthenticated(true);
     setIsAdmin(true);
     setShowLogin(false);
+    
+    // Dummy admin email for demonstration purposes
+    setAdminEmail("admin@example.com");
   };
 
   // Handle logout
@@ -80,6 +86,7 @@ function App() {
         setIsAuthenticated(false);
         setIsAdmin(false);
         setShowLogin(false);
+        setAdminEmail(null); // Clear admin email on logout
         console.log('Logout successful');
       } else {
         const errorResponse = await response.json();
@@ -247,6 +254,7 @@ function App() {
                         potholes={potholes}
                         onResolve={handleResolve}
                         onDelete={handleDelete}
+                        adminEmail={adminEmail || ''} // Pass the admin email to AdminView
                       />
                     )
                   )}

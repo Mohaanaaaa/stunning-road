@@ -177,7 +177,7 @@ app.post('/api/forgot-password', async (req, res) => {
     }
 
     if (results.affectedRows === 0) {
-      logRequest(req, res, 404, null, email, { message: 'Email not found' });
+      logRequest(req, res, 4  04, null, email, { message: 'Email not found' });
       return res.status(404).json({ success: false, message: 'Email not found' });
     }
 
@@ -231,10 +231,13 @@ app.post('/api/request-otp', async (req, res) => {
     });
 
     console.log({ message: 'OTP sent to your email!'});
+    logRequest(req, res, 200, null, email,{ message: 'OTP sent to your email!' }, null, `${executionTime}ms`);
     return res.status(200).json({ message: 'OTP sent to your email!' });
+
   } catch (error) {
     console.error(error);
-    console.log({ error: 'Failed to send OTP' });
+    //console.log({ error: 'Failed to send OTP' });
+    logRequest(req, res,{message: 'Failed to send OTP'}, 500);
     return res.status(500).json({ error: 'Failed to send OTP' });
   }
 });
@@ -245,19 +248,23 @@ app.post('/api/verify-otp', (req, res) => {
   
   const user = users[email];
   if (!user) {
+    logRequest(req, res, 404, null, email, { message: 'No OTP sent to this email.' });
     return res.status(400).json({ error: 'No OTP sent to this email.' });
   }
 
   if (Date.now() > user.expiry) {
+    logRequest(req, res, 404, null, email, { message: 'OTP has expired.' });
     return res.status(400).json({ error: 'OTP has expired.' });
   }
 
   if (user.otp !== otp) {
+    logRequest(req, res, 404, null, email, { message: 'Invalid OTP.' });
     return res.status(400).json({ error: 'Invalid OTP.' });
   }
 
   // OTP is verified successfully
   delete users[email]; // Clear OTP from memory
+  logRequest(req, res, 200, null, email,{message:'OTP verified successfully! You can now reset your password.'}, `${executionTime}ms`);
   return res.status(200).json({ message: 'OTP verified successfully! You can now reset your password.' });
 });
 
@@ -269,6 +276,7 @@ app.post('/api/reset-password', (req, res) => {
   users[email] = { password }; // Store the new password (for demo purposes)
   
   console.log({message:'Password reset successfully'});
+  logRequest(req, res, 200, null, email,{message:'Password reset successfully!'},null, `${executionTime}ms`);
   return res.status(200).json({ message: 'Password reset successfully!' });
 });
 

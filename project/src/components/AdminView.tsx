@@ -2,28 +2,42 @@ import React, { useState } from 'react';
 import { CheckCircle2, XCircle, AlertCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import { PotholeType } from '../types';
+import logger from './logger'; // Import logger utility
+
 
 interface AdminViewProps {
   potholes: PotholeType[];
   onResolve: (id: number) => void; 
   onDelete: (id: number) => void; 
+  adminEmail: string; // New prop for the admin's email
 }
 
-export default function AdminView({ potholes, onResolve, onDelete }: AdminViewProps) {
+export default function AdminView({ potholes, onResolve, onDelete, adminEmail }: AdminViewProps) {
   const [loadingId, setLoadingId] = useState<number | null>(null);
   const [isConfirmingDelete, setIsConfirmingDelete] = useState<number | null>(null);
 
+  // Update logAction to include adminEmail
+  const logAction = (action: string, potholeId: number) => {
+    const timestamp = new Date().toISOString();
+    logger.info(`Action: ${action}, Pothole ID: ${potholeId}, Admin Email: ${adminEmail}, Date: ${timestamp}`);
+    const logEntry = `Action: ${action}, Pothole ID: ${potholeId}, Admin Email: ${adminEmail}, Date: ${timestamp}`;
+    
+    console.log(logEntry); // Log to console or to backend API for persistent logging
+  };
+
   const handleResolve = (id: number) => {
-    setLoadingId(id); // Set loading state for UI feedback
-    onResolve(id); // Call the resolve function with the pothole ID
+    setLoadingId(id);
+    onResolve(id);
+    logAction("Resolve", id); // Log the resolve action after the state change
   };
 
   const handleDelete = (id: number) => {
     if (isConfirmingDelete === id) {
-      onDelete(id); // Call delete function
-      setIsConfirmingDelete(null); // Reset confirmation state
+      logAction("Delete", id); // Log the delete action
+      onDelete(id);
+      setIsConfirmingDelete(null);
     } else {
-      setIsConfirmingDelete(id); // Confirm delete action
+      setIsConfirmingDelete(id);
     }
   };
 

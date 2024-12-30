@@ -314,3 +314,30 @@
 2024-12-30T05:54:42.022Z [INFO]: Email verified successfully {"email":"mohankumer8@gmail.com"}
 2024-12-30T05:55:13.236Z [INFO]: OTP sent to mohankumer8@gmail.com 
 2024-12-30T05:55:40.882Z [INFO]: OTP verified for mohankumer8@gmail.com 
+2024-12-30T12:44:09.395Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-30T12:44:09.641Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-30T12:44:16.093Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-30T12:44:16.259Z [ERROR]: Login failed {"data":{"message":"Invalid credentials"},"status":401,"statusText":"Unauthorized","headers":{"content-length":"33","content-type":"application/json; charset=utf-8"},"config":{"transitional":{"silentJSONParsing":true,"forcedJSONParsing":true,"clarifyTimeoutError":false},"adapter":["xhr","http","fetch"],"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1,"maxBodyLength":-1,"env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"method":"post","url":"http://localhost:5000/api/login","data":"{\"email\":\"mohankumer8@gmail.com\",\"password\":\"Welcome@123\"}"},"request":{}}
+2024-12-30T12:44:24.097Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-30T12:44:24.257Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-30T12:44:24.259Z [INFO]: Cleared saved credentials from local storage 
+2024-12-30T13:38:44.201Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-30T13:38:44.217Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-30T13:38:53.393Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-30T13:38:53.493Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-30T13:38:53.494Z [INFO]: Cleared saved credentials from local storage 
+2024-12-30T13:38:58.552Z [INFO]: Action: Delete, Pothole ID: 4, Admin Email: admin@example.com, Date: 2024-12-30T13:38:58.546Z 
+2024-12-30T13:46:56.306Z [INFO]: Action: Delete, Pothole ID: 4, Admin Email: admin@example.com, Date: 2024-12-30T13:46:56.298Z 
+2024-12-30T13:47:00.060Z [INFO]: Action: Delete, Pothole ID: 4, Admin Email: admin@example.com, Date: 2024-12-30T13:47:00.055Z 
+2024-12-30T13:47:00.719Z [INFO]: Action: Delete, Pothole ID: 4, Admin Email: admin@example.com, Date: 2024-12-30T13:47:00.715Z 
+2024-12-30T13:47:13.127Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-30T13:47:13.140Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-30T13:47:20.361Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-30T13:47:20.608Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-30T13:47:20.609Z [INFO]: Cleared saved credentials from local storage 
+2024-12-30T13:47:54.441Z [INFO]: Validating email {"email":"mohankumer8@gmail.com"}
+2024-12-30T13:47:54.475Z [INFO]: Email validation response received {"email":"mohankumer8@gmail.com","success":true}
+2024-12-30T13:48:02.905Z [INFO]: Login attempt started {"email":"mohankumer8@gmail.com","rememberMe":false}
+2024-12-30T13:48:03.080Z [INFO]: Login successful {"email":"mohankumer8@gmail.com"}
+2024-12-30T13:48:03.081Z [INFO]: Cleared saved credentials from local storage 
+2024-12-30T13:48:07.315Z [INFO]: Action: Resolve, Pothole ID: 3, Admin Email: admin@example.com, Date: 2024-12-30T13:48:07.311Z 
