@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import logger from './logger'; // Import the logger utility
+import { getDailyQuote } from '../quotes';
+
 
 interface LoginProps {
   onLoginSuccess: () => void;
@@ -95,6 +97,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
   };
 
   return (
+    
     <div className="max-w-md mx-auto bg-white shadow-md p-6 rounded-lg mt-8">
       <h2 className="text-2xl font-bold mb-4 text-center">Admin Login</h2>
       {error && <p className="text-red-500 mb-4 text-center">{error}</p>}

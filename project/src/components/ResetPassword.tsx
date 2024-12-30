@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { AlertCircle, ShieldCheck } from 'lucide-react'; 
 import { COPYRIGHT_TEXT } from '../copyrights';
+import { getDailyQuote } from '../quotes'; 
 import axios from 'axios';
 import logger from './logger'; // Import the logger utility
-
 
 const ResetPassword: React.FC = () => {
   const navigate = useNavigate(); 
@@ -18,7 +18,7 @@ const ResetPassword: React.FC = () => {
   const [success, setSuccess] = useState<string | null>(null);
   const [isTimerActive, setIsTimerActive] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(0); 
-  const [otpRequestCount, setOtpRequestCount] = useState(0); // Track the number of OTP requests
+  const [otpRequestCount, setOtpRequestCount] = useState(0);
 
   useEffect(() => {
     let timer;
@@ -52,22 +52,23 @@ const ResetPassword: React.FC = () => {
       
       if (verificationResponse.data.success) {
         await axios.post('http://localhost:5000/api/request-otp', { email });
+        logger.info(`OTP sent to ${email}`);  // Log successful OTP request
         setSuccess("OTP sent to your email! Please verify it.");
-        console.log("OTP sent to your email! Please verify it.");
-        setOtpRequestCount(prevCount => prevCount + 1); // Increment the OTP request count
+        setOtpRequestCount(prevCount => prevCount + 1); 
         setIsTimerActive(true);
         setTimeRemaining(300); // 5 minutes = 300 seconds
         setStep(2);
       } else {
         setError("Email verification failed. Please check your email.");
-        console.log("Email verification failed. Please check your email.");
+        logger.warn(`Email verification failed for ${email}`); // Log email verification failure
       }
     } catch (err) {
+      logger.error(err); // Log error details
       if (err.response && err.response.data) {
         setError(err.response.data.message || "Failed to verify email. Please try again.");
       } else {
         setError("Unexpected error occurred. Please try again.");
-        console.log("Unexpected error occurred. Please try again.");
+        logger.error("Unexpected error occurred during OTP request.");
       }
     }
   };
@@ -80,12 +81,12 @@ const ResetPassword: React.FC = () => {
     
     try {
       await axios.post('http://localhost:5000/api/verify-otp', { email, otp });
+      logger.info(`OTP verified for ${email}`); // Log successful OTP verification
       setSuccess("OTP verified successfully! You can now reset your password.");
-      console.log("OTP verified successfully! You can now reset your password.");
       setStep(3); 
     } catch (err) {
       setError("Invalid OTP. Please try again.");
-      console.log("Invalid OTP. Please try again.")
+      logger.warn(`Invalid OTP for ${email}`); // Log invalid OTP attempt
     } finally {
       setIsLoading(false);
     }
@@ -99,13 +100,13 @@ const ResetPassword: React.FC = () => {
 
     if (newPassword !== confirmPassword) {
       setError("Passwords do not match.");
-      console.log("passwords do not match");
+      logger.warn("Passwords do not match on reset attempt."); // Log password mismatch
       return;
     }
 
     try {
       await axios.post('http://localhost:5000/api/reset-password', { email, password: newPassword });
-      console.log("Password reset successfully!")
+      logger.info(`Password reset successfully for ${email}`); // Log successful password reset
       setSuccess("Password reset successfully!");
       
       setTimeout(() => {
@@ -113,7 +114,7 @@ const ResetPassword: React.FC = () => {
       }, 10000);
     } catch (err) {
       setError("Failed to reset password. Please try again.");
-      console.log("Failed to reset password. Please try again.");
+      logger.error(`Failed to reset password for ${email}: ${err}`); // Log password reset failure
     } finally {
       setIsLoading(false);
     }
@@ -137,12 +138,20 @@ const ResetPassword: React.FC = () => {
         </div>
       </nav>
 
-      <div className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800">Reset Password</h2>
+      {/* Daily Quote Section */}
+      <div className="bg-gray-100 py-4 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-lg font-bold text-gray-700 italic">"{getDailyQuote()}"</p>
+        </div>
+      </div>
+
+      <div className="flex-grow container mx- px-4 sm:px-6 lg:px-8 py-6">
+        
         {error && <p className="text-red-500 text-center">{error}</p>}
         {success && <p className="text-green-500 text-center">{success}</p>}
 
         <div className="bg-white shadow rounded-lg p-8 mt-6">
+        <h2 className="text-2xl font-bold mb-4 text-center">Reset Password</h2>
           {step === 1 && (
             <form onSubmit={requestOtp}>
               <div className="mb-4">
@@ -180,8 +189,15 @@ const ResetPassword: React.FC = () => {
                   id="otp"
                   className="mt-1 p-2 border border-gray-300 rounded w-full focus:outline-none focus:border-blue-500"
                   value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    // Ensure only digits are allowed and max length is 6
+                    if (/^\d*$/.test(value) && value.length <= 6) {
+                      setOtp(value);
+                    }
+                  }}
                   required
+                  maxLength="6"
                 />
               </div>
               <button type="submit" className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-200" disabled={isLoading}>

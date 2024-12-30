@@ -98,7 +98,7 @@ export default function ReportForm({ onSubmit }: { onSubmit: (data: any) => void
           rows={3}
           spellCheck={true} // Enable spell checking
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Describe the road and its impact... note: use at least traffic and damaged like words"
+          placeholder="Describe the road and its impact...                                                                           note: use at least traffic and damaged like words"
         />
       </div>
 

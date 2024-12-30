@@ -31,6 +31,16 @@ const db = mysql.createConnection({
   database: process.env.DB_NAME,
 });
 
+db.connect((err) => {
+  if (err) {
+    logger.error({ message: 'Error connecting to MySQL', error: err });
+    process.exit(1);
+  }
+  logger.info('Connected to MySQL');
+  console.log('connect to Mysql');
+});
+
+
 // In-memory storage for demo purposes
 const users = {}; // Email => { password, otp }
 const otpExpiryTime = 300000; // OTP valid for 5 minutes
@@ -44,14 +54,6 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-db.connect((err) => {
-  if (err) {
-    logger.error({ message: 'Error connecting to MySQL', error: err });
-    process.exit(1);
-  }
-  logger.info('Connected to MySQL');
-  console.log('connect to Mysql');
-});
 
 // Helper function to log requests
 function logRequest(req, res, statusCode, userId = null, email = null, error = null, executionTime = null) {
@@ -227,9 +229,12 @@ app.post('/api/request-otp', async (req, res) => {
       subject: 'Your OTP Code',
       text: `Your OTP code is ${otp}. It is valid for 5 minutes.`,
     });
+
+    console.log({ message: 'OTP sent to your email!'});
     return res.status(200).json({ message: 'OTP sent to your email!' });
   } catch (error) {
     console.error(error);
+    console.log({ error: 'Failed to send OTP' });
     return res.status(500).json({ error: 'Failed to send OTP' });
   }
 });

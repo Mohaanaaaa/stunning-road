@@ -150,22 +150,23 @@ const ForgotPassword: React.FC = () => {
 
   return (
     <div>
-      <div className= "container mx-auto flex items-center justify-between px-6">
-        <div className="flex items-center gap-2">
-          <AlertCircle className="h-8 w-8 text-blue-600" />
-          <h1 className="text-2xl font-bold text-gray-900">Bengaluru Roads</h1>
+      <nav className="bg-white shadow-md py-4">
+        <div className="container mx-auto flex items-center justify-between px-6">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="h-8 w-8 text-blue-600" />
+            <h1 className="text-2xl font-bold text-gray-900">Bengaluru Roads</h1>
+          </div>
+          <button
+            className="text-gray-600 hover:text-gray-900 flex items-center gap-2" 
+            onClick={() => navigate('/')}
+          >
+            <ShieldCheck size={20} />
+            Back to Home
+          </button>
         </div>
-        
-      </div>
-      <button
-        className="text-gray-600 hover:text-gray-900 flex items-center gap-2" 
-        onClick={() => navigate('/')}
-      >
-        <ShieldCheck size={20} />
-        Back to Home
-      </button>
+      </nav>
        {/* Daily Quote Section */}
-       <div className="bg-gray-100 py-4 shadow-sm">
+      <div className="bg-gray-100 py-4 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-lg font-bold text-gray-700 italic">"{getDailyQuote()}"</p>
         </div>
