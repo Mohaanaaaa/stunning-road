@@ -177,7 +177,7 @@ app.post('/api/forgot-password', async (req, res) => {
     }
 
     if (results.affectedRows === 0) {
-      logRequest(req, res, 4  04, null, email, { message: 'Email not found' });
+      logRequest(req, res, 404, null, email, { message: 'Email not found' });
       return res.status(404).json({ success: false, message: 'Email not found' });
     }
 
