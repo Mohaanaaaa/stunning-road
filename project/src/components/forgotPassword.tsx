@@ -52,6 +52,7 @@ const ForgotPassword: React.FC = () => {
         if (response.data.success) {
           setEmailValid(true);
           logger.info('Email verified successfully', { email: inputEmail });
+          console.log('Email verified successfully', { email: inputEmail });
         } else {
           setEmailError(response.data.message || 'Email verification failed');
           logger.warn('Email verification failed', { email: inputEmail });
