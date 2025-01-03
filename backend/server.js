@@ -54,7 +54,6 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-
 // Helper function to log requests
 function logRequest(req, res, statusCode, userId = null, email = null, error = null, executionTime = null) {
   const logData = {
@@ -295,7 +294,7 @@ app.get('/api/check-auth', (req, res) => {
 });
 
 // Start server
-const PORT = 5000;
+const PORT = process.env.PORT; // Use the port from .env
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
