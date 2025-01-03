@@ -1,6 +1,6 @@
 // copyrights.ts
 export const COPYRIGHT_TEXT = `
-  Copyright 2023 [BengaluruRoads]
+  Copyright 2023 [Bengaluru Roads]
   All rights reserved.
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
